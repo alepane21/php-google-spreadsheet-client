@@ -117,7 +117,7 @@ class Google_Spreadsheet_Spreadsheet
      */
     public function getWorksheetsFeedUrl()
     {
-        return Util::getLinkHref($this->xml, self::REL_WORKSHEETS_FEED);
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, self::REL_WORKSHEETS_FEED);
     }
 
 }

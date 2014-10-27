@@ -62,7 +62,7 @@ class Google_Spreadsheet_CellFeed
         $postUrl = $this->getPostUrl();
 
         foreach ($this->xml->entry as $entry) {
-            $cell = new CellEntry($entry, $postUrl);
+            $cell = new Google_Spreadsheet_CellEntry($entry, $postUrl);
             $this->entries[$cell->getCellIdString()] = $cell;
         }
 
@@ -116,7 +116,7 @@ class Google_Spreadsheet_CellFeed
             $value
         );
 
-        ServiceRequestFactory::getInstance()->post($this->getPostUrl(), $entry);
+        Google_Spreadsheet_ServiceRequestFactory::getInstance()->post($this->getPostUrl(), $entry);
     }
 
     /**
@@ -139,7 +139,7 @@ class Google_Spreadsheet_CellFeed
      */
     public function getPostUrl()
     {
-        return Util::getLinkHref($this->xml, 'http://schemas.google.com/g/2005#post');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'http://schemas.google.com/g/2005#post');
     }
 
     /**
@@ -148,7 +148,7 @@ class Google_Spreadsheet_CellFeed
      */
     public function getBatchUrl()
     {
-        return Util::getLinkHref($this->xml, 'http://schemas.google.com/g/2005#batch');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'http://schemas.google.com/g/2005#batch');
     }
     
 }

@@ -22,7 +22,7 @@
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class Worksheet
+class Google_Spreadsheet_Worksheet
 {
     /**
      * A worksheet xml object

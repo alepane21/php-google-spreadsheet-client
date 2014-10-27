@@ -62,7 +62,7 @@ class Google_Spreadsheet_CellEntry
     /**
      * Constructor
      * 
-     * @param \SimpleXMLElement $xml
+     * @param SimpleXMLElement $xml
      * @param string            $postUrl
      */
     public function __construct($xml, $postUrl)
@@ -167,7 +167,7 @@ class Google_Spreadsheet_CellEntry
             $value
         );
 
-        $res = ServiceRequestFactory::getInstance()->post($this->postUrl, $entry);
+        $res = Google_Spreadsheet_ServiceRequestFactory::getInstance()->post($this->postUrl, $entry);
         $this->xml = new SimpleXMLElement($res);
     }
 
@@ -196,7 +196,7 @@ class Google_Spreadsheet_CellEntry
      */
     public function getEditUrl()
     {
-        return Util::getLinkHref($this->xml, 'edit');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'edit');
     }
     
 }

@@ -22,6 +22,6 @@
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class Google_Spreadsheet_Exception extends BaseException
+class Google_Spreadsheet_Exception extends Exception
 {
 }
