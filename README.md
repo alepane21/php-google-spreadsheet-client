@@ -1,6 +1,6 @@
 # Introduction
 
-This library provides a simple interface to the Google Spreadsheet API. It's a fork of https://github.com/alepane21/php-google-spreadsheet-client changed to be compatible with PHP 5.2.1+.
+This library provides a simple interface to the Google Spreadsheet API. It's a fork of https://github.com/asimlqt/php-google-spreadsheet-client changed to be compatible with PHP 5.2.1+.
 
 There are a couple of important things to note.
 
@@ -15,7 +15,7 @@ I strongly recommend you read through the [official Google Spreadsheet API docum
 
 Using [composer](https://getcomposer.org/) is the recommended way to install it.
 
-1 - Add "asimlqt/php-google-spreadsheet-client" as a dependency in your project's composer.json file.
+1 - Add "alepane21/php-google-spreadsheet-client" as a dependency in your project's composer.json file.
 
 ```json
 {
