@@ -1,6 +1,6 @@
 # Introduction
 
-This library provides a simple interface to the Google Spreadsheet API.
+This library provides a simple interface to the Google Spreadsheet API. It's a fork of https://github.com/alepane21/php-google-spreadsheet-client changed to be compatible with PHP 5.2.1+.
 
 There are a couple of important things to note.
 
@@ -20,7 +20,7 @@ Using [composer](https://getcomposer.org/) is the recommended way to install it.
 ```json
 {
     "require": {
-        "asimlqt/php-google-spreadsheet-client": "2.2.*"
+        "alepane21/php-google-spreadsheet-client": "2.2.*"
     }
 }
 ```
@@ -49,17 +49,14 @@ require 'vendor/autoload.php';
 The first thing you will need to do is initialize the service request factory:
 
 ```php
-use Google\Spreadsheet\DefaultServiceRequest;
-use Google\Spreadsheet\ServiceRequestFactory;
-
-$serviceRequest = new DefaultServiceRequest($accessToken);
-ServiceRequestFactory::setInstance($serviceRequest);
+$serviceRequest = new Google_Spreadsheet_DefaultServiceRequest($accessToken);
+Google_Spreadsheet_ServiceRequestFactory::setInstance($serviceRequest);
 ```
 
 ## Retrieving a list of spreadsheets
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 ```
 
@@ -74,7 +71,7 @@ $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 You can retrieve a list of worksheets from a spreadsheet by calling the getWorksheets() method.
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $worksheetFeed = $spreadsheet->getWorksheets();
@@ -89,7 +86,7 @@ $worksheet = $worksheetFeed->getByTitle('Sheet 1');
 ## Adding a worksheet
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $spreadsheet->addWorksheet('New Worksheet', 50, 20);
@@ -100,7 +97,7 @@ The only required parameter is the worksheet name, The row and column count are 
 ## Deleting a worksheet
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $worksheetFeed = $spreadsheet->getWorksheets();
@@ -113,7 +110,7 @@ $worksheet->delete();
 ### Retrieving a list-based feed
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $worksheetFeed = $spreadsheet->getWorksheets();
@@ -134,7 +131,7 @@ The getValues() method returns an associative array where the keys are the colum
 ### Adding a list row
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $worksheetFeed = $spreadsheet->getWorksheets();
@@ -148,7 +145,7 @@ $listFeed->insert($row);
 ### Updating a list row
 
 ```php
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $worksheetFeed = $spreadsheet->getWorksheets();
@@ -169,7 +166,7 @@ The Google Spreadsheet API does not allow you to update a list row if headers ar
 To add headers to a worksheet, use the following:
 ```php
 
-$spreadsheetService = new Google\Spreadsheet\SpreadsheetService();
+$spreadsheetService = new Google_Spreadsheet_SpreadsheetService();
 $spreadsheetFeed = $spreadsheetService->getSpreadsheets();
 $spreadsheet = $spreadsheetFeed->getByTitle('MySpreadsheet');
 $worksheetFeed = $spreadsheet->getWorksheets();
