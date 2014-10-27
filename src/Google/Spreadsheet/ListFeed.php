@@ -92,7 +92,7 @@ class Google_Spreadsheet_ListFeed
                 $cols = $entry->xpath('gsx:*');
                 $vals = array();
                 foreach($cols as $col) {
-                    $vals[] = $col->__toString();
+                    $vals[] = $col->asXml();
                 }
                 $rows[] = new Google_Spreadsheet_ListEntry($entry, array_combine($colNames, $vals));
                 

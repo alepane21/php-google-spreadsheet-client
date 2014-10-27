@@ -48,8 +48,8 @@ class Google_Spreadsheet_Util
     {
         foreach($xml->link as $link) {
             $attributes = $link->attributes();
-            if($attributes['rel']->__toString() === $rel) {
-                return $attributes['href']->__toString();
+            if($attributes['rel']->asXml() === $rel) {
+                return $attributes['href']->asXml();
             }
         }
         throw new Google_Spreadsheet_Exception('No link found with rel "'.$rel.'"');

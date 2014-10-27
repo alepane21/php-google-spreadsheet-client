@@ -53,7 +53,7 @@ class Google_Spreadsheet_Worksheet
      */
     public function getId()
     {
-        return $this->xml->id->__toString();
+        return $this->xml->id->asXml();
     }
 
     /**
@@ -63,7 +63,7 @@ class Google_Spreadsheet_Worksheet
      */
     public function getUpdated()
     {
-        return new DateTime($this->xml->updated->__toString());
+        return new DateTime($this->xml->updated->asXml());
     }
 
     /**
@@ -73,7 +73,7 @@ class Google_Spreadsheet_Worksheet
      */
     public function getTitle()
     {
-        return $this->xml->title->__toString();
+        return $this->xml->title->asXml();
     }
 
     /**
@@ -84,7 +84,7 @@ class Google_Spreadsheet_Worksheet
     public function getRowCount()
     {
         $el = current($this->xml->xpath('//gs:rowCount'));
-        return (int) $el->__toString();
+        return (int) $el->asXml();
     }
 
     /**
@@ -95,7 +95,7 @@ class Google_Spreadsheet_Worksheet
     public function getColCount()
     {
         $el = current($this->xml->xpath('//gs:colCount'));
-        return (int) $el->__toString();
+        return (int) $el->asXml();
     }
 
     /**
