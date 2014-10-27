@@ -79,7 +79,7 @@ class Google_Spreadsheet_WorksheetFeed extends ArrayIterator
     public function getByTitle($title)
     {
         foreach ($this->xml->entry as $entry) {
-            if ($entry->title->asXml() == $title) {
+            if ((string) $entry->title == $title) {
                 $worksheet = new Google_Spreadsheet_Worksheet($entry);
                 $worksheet->setPostUrl($this->getPostUrl());
                 return $worksheet;

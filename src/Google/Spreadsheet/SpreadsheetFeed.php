@@ -59,7 +59,7 @@ class Google_Spreadsheet_SpreadsheetFeed extends ArrayIterator
     public function getByTitle($title)
     {
         foreach($this->xml->entry as $entry) {
-            if($entry->title->asXml() == $title) {
+            if((string) $entry->title == $title) {
                 return new Google_Spreadsheet_Spreadsheet($entry);
             }
         }

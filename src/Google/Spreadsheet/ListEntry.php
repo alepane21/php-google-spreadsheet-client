@@ -68,7 +68,7 @@ class Google_Spreadsheet_ListEntry
     public function update($values)
     {        
         $entry = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gsx="http://schemas.google.com/spreadsheets/2006/extended">';
-        $entry .= '<id>'.$this->xml->id->asXml().'</id>';
+        $entry .= '<id>'.(string) $this->xml->id.'</id>';
 
         foreach($values as $colName => $value) {
             $entry .= sprintf(

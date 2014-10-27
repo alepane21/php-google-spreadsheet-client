@@ -55,7 +55,7 @@ class Google_Spreadsheet_Batch_BatchResponse
     public function hasErrors()
     {
         foreach ($this->xml->xpath("//batch:status/@code") as $el) {
-            if($el->asXml() !== "200") {
+            if((string) $el !== "200") {
                 return true;
             }
         }

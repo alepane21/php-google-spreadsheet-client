@@ -70,7 +70,7 @@ class Google_Spreadsheet_CellEntry
         $this->xml = $xml;
         $this->postUrl = $postUrl;
         $this->setCellLocation();
-        $this->content = $this->xml->content->asXml();
+        $this->content = (string) $this->xml->content;
     }
 
     /**
@@ -125,7 +125,7 @@ class Google_Spreadsheet_CellEntry
      */
     public function getTitle()
     {
-        return $this->xml->title->asXml();
+        return (string) $this->xml->title;
     }
 
     /**
@@ -178,7 +178,7 @@ class Google_Spreadsheet_CellEntry
      */
     protected function setCellLocation()
     {
-        $id = $this->xml->id->asXml();
+        $id = (string) $this->xml->id;
         preg_match('@/R(\d+)C(\d+)@', $id, $matches);
 
         if(count($matches) !== 3) {

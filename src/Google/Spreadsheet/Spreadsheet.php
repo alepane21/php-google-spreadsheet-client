@@ -50,7 +50,7 @@ class Google_Spreadsheet_Spreadsheet
      */
     public function getId()
     {
-        return $this->xml->id->asXml();
+        return (string) $this->xml->id;
     }
 
     /**
@@ -60,7 +60,7 @@ class Google_Spreadsheet_Spreadsheet
      */
     public function getUpdated()
     {
-        return new DateTime($this->xml->updated->asXml());
+        return new DateTime((string) $this->xml->updated);
     }
 
     /**
@@ -70,7 +70,7 @@ class Google_Spreadsheet_Spreadsheet
      */
     public function getTitle()
     {
-        return $this->xml->title->asXml();
+        return (string) $this->xml->title;
     }
 
     /**
