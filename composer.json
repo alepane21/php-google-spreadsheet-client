@@ -28,6 +28,9 @@
         "php": ">=5.2.1"
     },
     "autoload": {
-        "psr-4": {"Google\\": "src/Google"}
-    }
+        "classmap": [
+            "src/"
+        ]
+    },
+    "include-path": ["src/"],
 }
