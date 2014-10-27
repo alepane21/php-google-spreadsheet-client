@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
 
 /**
  * ServiceRequestFactory
@@ -23,16 +22,16 @@ namespace Google\Spreadsheet;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class ServiceRequestFactory
+class Google_Spreadsheet_ServiceRequestFactory
 {
     private static $instance;
 
     /**
      * [setInstance description]
      * 
-     * @param ServiceRequestInterface $instance
+     * @param Google_Spreadsheet_ServiceRequestInterface $instance
      */
-    public static function setInstance(ServiceRequestInterface $instance = null)
+    public static function setInstance(Google_Spreadsheet_ServiceRequestInterface $instance = null)
     {
         self::$instance = $instance;
     }
@@ -40,14 +39,14 @@ class ServiceRequestFactory
     /**
      * [getInstance description]
      * 
-     * @return ServiceRequestInterface
+     * @return Google_Spreadsheet_ServiceRequestInterface
      * 
-     * @throws \Google\Spreadsheet\Exception
+     * @throws Google_Spreadsheet_Exception
      */
     public static function getInstance()
     {
         if(is_null(self::$instance)) {
-            throw new Exception();
+            throw new Google_Spreadsheet_Exception();
         }
         return self::$instance;
     }

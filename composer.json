@@ -1,7 +1,7 @@
 {
     "name": "alepane21/php-google-spreadsheet-client",
     "type": "library",
-    "description": "Google Spreadsheet PHP Client",
+    "description": "Google Spreadsheet PHP Client (PHP 5.2+)",
     "keywords": ["google", "spreadsheet"],
     "homepage": "https://github.com/alepane21/php-google-spreadsheet-client",
     "license": "Apache-2.0",

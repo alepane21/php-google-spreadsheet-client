@@ -14,9 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet\Batch;
-
-use SimpleXMLElement;
 
 /**
  * BatchResponse
@@ -25,7 +22,7 @@ use SimpleXMLElement;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class BatchResponse
+class Google_Spreadsheet_Batch_BatchResponse
 {
     /**
      *

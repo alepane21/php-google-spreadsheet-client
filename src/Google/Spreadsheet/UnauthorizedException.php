@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
 
 /**
  * Exception
@@ -23,6 +22,6 @@ namespace Google\Spreadsheet;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class UnauthorizedException extends Exception
+class Google_Spreadsheet_UnauthorizedException extends Google_Spreadsheet_Exception
 {
 }

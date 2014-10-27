@@ -14,10 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
-
-use ArrayIterator;
-use SimpleXMLElement;
 
 /**
  * Worksheet Feed.
@@ -26,12 +22,12 @@ use SimpleXMLElement;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class WorksheetFeed extends ArrayIterator
+class Google_Spreadsheet_WorksheetFeed extends ArrayIterator
 {
     /**
      * Worksheet feed xml object
      * 
-     * @var \SimpleXMLElement
+     * @var SimpleXMLElement
      */
     private $xml;
 
@@ -46,7 +42,7 @@ class WorksheetFeed extends ArrayIterator
 
         $worksheets = array();
         foreach ($this->xml->entry as $entry) {
-            $worksheet = new Worksheet($entry);
+            $worksheet = new Google_Spreadsheet_Worksheet($entry);
             $worksheet->setPostUrl($this->getPostUrl());
             $worksheets[] = $worksheet;
         }
@@ -60,7 +56,7 @@ class WorksheetFeed extends ArrayIterator
      */
     private function getPostUrl()
     {
-        return Util::getLinkHref($this->xml, 'http://schemas.google.com/g/2005#post');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'http://schemas.google.com/g/2005#post');
     }
 
     /**
@@ -70,7 +66,7 @@ class WorksheetFeed extends ArrayIterator
      */
     public function getCellFeedUrl()
     {
-        return Util::getLinkHref($this->xml, 'http://schemas.google.com/spreadsheets/2006#cellsfeed');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'http://schemas.google.com/spreadsheets/2006#cellsfeed');
     }
 
     /**
@@ -78,13 +74,13 @@ class WorksheetFeed extends ArrayIterator
      * 
      * @param string $title name of the worksheet
      * 
-     * @return \Google\Spreadsheet\Worksheet
+     * @return Google_Spreadsheet_Worksheet
      */
     public function getByTitle($title)
     {
         foreach ($this->xml->entry as $entry) {
             if ($entry->title->__toString() == $title) {
-                $worksheet = new Worksheet($entry);
+                $worksheet = new Google_Spreadsheet_Worksheet($entry);
                 $worksheet->setPostUrl($this->getPostUrl());
                 return $worksheet;
             }

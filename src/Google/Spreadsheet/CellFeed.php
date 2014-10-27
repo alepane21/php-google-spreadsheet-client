@@ -14,11 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
-
-use SimpleXMLElement;
-use Google\Spreadsheet\Batch\BatchRequest;
-use Google\Spreadsheet\Batch\BatchResponse;
 
 /**
  * Worksheet Data.
@@ -27,7 +22,7 @@ use Google\Spreadsheet\Batch\BatchResponse;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class CellFeed
+class Google_Spreadsheet_CellFeed
 {
     /**
      * The xml representation of the feed
@@ -126,15 +121,15 @@ class CellFeed
 
     /**
      * 
-     * @param \Google\Spreadsheet\Batch\BatchRequest $batchRequest
+     * @param Google_Spreadsheet_Batch_BatchRequest $batchRequest
      * 
-     * @return \Google\Spreadsheet\Batch\BatchResponse
+     * @return Google_Spreadsheet_Batch_BatchResponse
      */
-    public function updateBatch(BatchRequest $batchRequest)
+    public function updateBatch(Google_Spreadsheet_Batch_BatchRequest $batchRequest)
     {
         $xml = $batchRequest->createRequestXml($this);
-        $response = ServiceRequestFactory::getInstance()->post($this->getBatchUrl(), $xml);
-        return new BatchResponse(new SimpleXMLElement($response));
+        $response = Google_Spreadsheet_ServiceRequestFactory::getInstance()->post($this->getBatchUrl(), $xml);
+        return new Google_Spreadsheet_Batch_BatchResponse(new SimpleXMLElement($response));
     }
     
     /**

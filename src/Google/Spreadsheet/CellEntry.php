@@ -14,9 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
-
-use SimpleXMLElement;
 
 /**
  * Worksheet Data.
@@ -25,7 +22,7 @@ use SimpleXMLElement;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class CellEntry
+class Google_Spreadsheet_CellEntry
 {
     /**
      * Xml element for a cell entry

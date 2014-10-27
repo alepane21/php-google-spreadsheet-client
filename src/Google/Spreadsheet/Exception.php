@@ -14,9 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
-
-use Exception as BaseException;
 
 /**
  * Exception
@@ -25,6 +22,6 @@ use Exception as BaseException;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class Exception extends BaseException
+class Google_Spreadsheet_Exception extends BaseException
 {
 }

@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
 
 /**
  * Request
@@ -23,7 +22,7 @@ namespace Google\Spreadsheet;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-interface ServiceRequestInterface
+interface Google_Spreadsheet_ServiceRequestInterface
 {
     public function get($url);
     public function post($url, $postData);

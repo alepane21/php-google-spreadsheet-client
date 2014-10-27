@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
 
 /**
  * Service Request. The parent class of all services.
@@ -23,12 +22,12 @@ namespace Google\Spreadsheet;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class DefaultServiceRequest implements ServiceRequestInterface
+class Google_Spreadsheet_DefaultServiceRequest implements Google_Spreadsheet_ServiceRequestInterface
 {
     /**
      * Request object
      * 
-     * @var \Google\Spreadsheet\Request
+     * @var Google_Spreadsheet_Request
      */
     protected $accessToken;
 
@@ -56,7 +55,7 @@ class DefaultServiceRequest implements ServiceRequestInterface
     /**
      * Initializes the service request object.
      * 
-     * @param \Google\Spreadsheet\Request $request
+     * @param Google_Spreadsheet_Request $request
      */
     public function __construct($accessToken)
     {
@@ -78,7 +77,7 @@ class DefaultServiceRequest implements ServiceRequestInterface
      * 
      * @param array $headers associative array of key value pairs
      *
-     * @return Google\Spreadsheet\DefaultServiceRequest
+     * @return Google_Spreadsheet_DefaultServiceRequest
      */
     public function setHeaders(array $headers)
     {
@@ -101,7 +100,7 @@ class DefaultServiceRequest implements ServiceRequestInterface
      * 
      * @param string $userAgent
      *
-     * @return Google\Spreadsheet\DefaultServiceRequest
+     * @return Google_Spreadsheet_DefaultServiceRequest
      */
     public function setUserAgent($userAgent)
     {
@@ -214,11 +213,11 @@ class DefaultServiceRequest implements ServiceRequestInterface
      * 
      * @return string the xml response
      *
-     * @throws \Google\Spreadsheet\Exception If the was a problem with the request.
+     * @throws Google_Spreadsheet_Exception If the was a problem with the request.
      *                                       Will throw an exception if the response
      *                                       code is 300 or greater
      *                                       
-     * @throws \Google\Spreadsheet\UnauthorizedException
+     * @throws Google_Spreadsheet_UnauthorizedException
      */
     protected function execute($ch)
     {
@@ -229,9 +228,9 @@ class DefaultServiceRequest implements ServiceRequestInterface
 
         if($httpCode > 299) {
             if($httpCode === 401) {
-                throw new UnauthorizedException('Access token is invalid', 401);
+                throw new Google_Spreadsheet_UnauthorizedException('Access token is invalid', 401);
             } else {
-                throw new Exception('Error in Google Request', $info['http_code']);
+                throw new Google_Spreadsheet_Exception('Error in Google Request', $info['http_code']);
             }
         }
 

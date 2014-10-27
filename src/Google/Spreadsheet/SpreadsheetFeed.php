@@ -14,10 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
-
-use ArrayIterator;
-use SimpleXMLElement;
 
 /**
  * Spreadsheet feed. 
@@ -26,12 +22,12 @@ use SimpleXMLElement;
  * @subpackage Spreadsheet
  * @author     Asim Liaquat <asimlqt22@gmail.com>
  */
-class SpreadsheetFeed extends ArrayIterator
+class Google_Spreadsheet_SpreadsheetFeed extends ArrayIterator
 {
     /**
      * The spreadsheet feed xml object
      * 
-     * @var \SimpleXMLElement
+     * @var SimpleXMLElement
      */
     protected $xml;
 
@@ -46,7 +42,7 @@ class SpreadsheetFeed extends ArrayIterator
 
         $spreadsheets = array();
         foreach ($this->xml->entry as $entry) {
-            $spreadsheets[] = new Spreadsheet($entry);
+            $spreadsheets[] = new Google_Spreadsheet_Spreadsheet($entry);
         }
         parent::__construct($spreadsheets);
     }
@@ -58,13 +54,13 @@ class SpreadsheetFeed extends ArrayIterator
      * 
      * @param string $title
      * 
-     * @return \Google\Spreadsheet\Spreadsheet|null
+     * @return Google_Spreadsheet_Spreadsheet|null
      */
     public function getByTitle($title)
     {
         foreach($this->xml->entry as $entry) {
             if($entry->title->__toString() == $title) {
-                return new Spreadsheet($entry);
+                return new Google_Spreadsheet_Spreadsheet($entry);
             }
         }
         return null;

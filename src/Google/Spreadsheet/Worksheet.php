@@ -14,10 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Spreadsheet;
-
-use SimpleXMLElement;
-use DateTime;
 
 /**
  * Worksheet.
@@ -31,7 +27,7 @@ class Worksheet
     /**
      * A worksheet xml object
      * 
-     * @var \SimpleXMLElement
+     * @var SimpleXMLElement
      */
     private $xml;
 
@@ -105,23 +101,23 @@ class Worksheet
     /**
      * Get the list feed of this worksheet
      * 
-     * @return \Google\Spreadsheet\List\Feed
+     * @return Google_Spreadsheet_ListFeed
      */
     public function getListFeed()
     {
-        $res = ServiceRequestFactory::getInstance()->get($this->getListFeedUrl());
-        return new ListFeed($res);
+        $res = Google_Spreadsheet_ServiceRequestFactory::getInstance()->get($this->getListFeedUrl());
+        return new Google_Spreadsheet_ListFeed($res);
     }
 
     /**
      * Get the cell feed of this worksheet
      * 
-     * @return \Google\Spreadsheet\Cell\Feed
+     * @return Google_Spreadsheet_CellFeed
      */
     public function getCellFeed()
     {
-        $res = ServiceRequestFactory::getInstance()->get($this->getCellFeedUrl());
-        return new CellFeed($res);
+        $res = Google_Spreadsheet_ServiceRequestFactory::getInstance()->get($this->getCellFeedUrl());
+        return new Google_Spreadsheet_CellFeed($res);
     }
 
     /**
@@ -131,7 +127,7 @@ class Worksheet
      */
     public function delete()
     {
-        ServiceRequestFactory::getInstance()->delete($this->getEditUrl());
+        Google_Spreadsheet_ServiceRequestFactory::getInstance()->delete($this->getEditUrl());
     }
 
     public function setPostUrl($url)
@@ -146,7 +142,7 @@ class Worksheet
      */
     public function getEditUrl()
     {
-        return Util::getLinkHref($this->xml, 'edit');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'edit');
     }
 
     /**
@@ -156,7 +152,7 @@ class Worksheet
      */
     public function getListFeedUrl()
     {
-        return Util::getLinkHref($this->xml, 'http://schemas.google.com/spreadsheets/2006#listfeed');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'http://schemas.google.com/spreadsheets/2006#listfeed');
     }
 
     /**
@@ -166,6 +162,6 @@ class Worksheet
      */
     public function getCellFeedUrl()
     {
-        return Util::getLinkHref($this->xml, 'http://schemas.google.com/spreadsheets/2006#cellsfeed');
+        return Google_Spreadsheet_Util::getLinkHref($this->xml, 'http://schemas.google.com/spreadsheets/2006#cellsfeed');
     }
 }
