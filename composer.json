@@ -1,9 +1,9 @@
 {
-    "name": "asimlqt/php-google-spreadsheet-client",
+    "name": "alepane21/php-google-spreadsheet-client",
     "type": "library",
     "description": "Google Spreadsheet PHP Client",
     "keywords": ["google", "spreadsheet"],
-    "homepage": "https://github.com/asimlqt/php-google-spreadsheet-client",
+    "homepage": "https://github.com/alepane21/php-google-spreadsheet-client",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -16,10 +16,16 @@
             "email": "martin.czygan@gmail.com",
             "homepage": "http://twitter.com/cvvfj",
             "role": "Packager"
+        },
+        {
+            "name": "Alessandro Pagnin",
+            "email": "alepane@gmail.com",
+            "homepage": "http://alepane.it/",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.2.1"
     },
     "autoload": {
         "psr-4": {"Google\\": "src/Google"}
